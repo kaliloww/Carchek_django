@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 class Car(models.Model):
+    license_plate = models.CharField(
+        verbose_name="Гос номер", #01KG111AAA
+        max_length=10, null=True, 
+        unique=True
+    )
     brand = models.CharField(
         verbose_name="Марка",
         max_length=200
