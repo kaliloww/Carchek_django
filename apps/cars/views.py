@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
 from django_filters.rest_framework import DjangoFilterBackend
 
 from apps.cars.models import Car
@@ -12,5 +12,13 @@ class CarAPIView(ListAPIView):
     filterset_fields = ['license_plate', ]
 
 class CarCreateAPIView(CreateAPIView):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
+
+class CarUpdateAPIView(UpdateAPIView):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
+
+class CarDestroyAPIView(DestroyAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
