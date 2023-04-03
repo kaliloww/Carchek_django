@@ -64,11 +64,8 @@ class PeriodsOwnership(models.Model):
         auto_now_add=True
     )
     before_date = models.DateField(
-        verbose_name="До"
-    )
-    actual = models.BooleanField(
-        verbose_name="Актуальность",
-        default=False
+        verbose_name="До",
+        blank=True, null=True
     )
 
     def __str__(self):
